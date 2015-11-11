@@ -5,7 +5,7 @@ thirdparty/lapack/3.1.1 lapack
 thirdparty/csparse/2.2.1 csparse
 thirdparty/ranlux/1.0 ranlux
 thirdparty/netcdfcore/4.0.1 netcdfcore
-thirdparty/boost/1.51.0 boost
+thirdparty/boost/1.59.0 boost
 # main code
 projects/hipoly/1.0 hipoly
 projects/scimafic/1.0 scimafic
