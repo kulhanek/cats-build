@@ -19,8 +19,10 @@ echo "# -------------------------------------------"
 OLDPWD=$PWD
 mkdir -p $1 || exit 1
 cd $1 || exit 1
+if [ -f CMakeLists.txt ]; then
 cmake $MODE . || exit 1
 make || exit 1
+fi
 cd $OLDPWD
 }
 # ------------------------------------------------------------------------------
