@@ -13,7 +13,12 @@ cd $OLDPWD
 
 # ------------------------------------------------------------------------------
 
-cat repositories | grep -v '^#' | while read A B; do
-   push_code $A $B || exit 1
-done
-
+if [ -f repositories.writable ]; then
+    cat repositories.writable | grep -v '^#' | while read A B; do
+    push_code $A $B || exit 1
+    done
+else
+    cat repositories | grep -v '^#' | while read A B; do
+    push_code $A $B || exit 1
+    done
+fi
