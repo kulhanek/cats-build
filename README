@@ -1,2 +1,7 @@
+# ================== REMARK =====================================
+# if you do not have a full write access to github, 
+# make copy of the file "repositories" as "repositories.writable",
+# and keep inside only those repositories you can push into
+
 # cats-build
 utilites for CATs compilation
