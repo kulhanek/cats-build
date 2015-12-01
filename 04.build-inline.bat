@@ -1,13 +1,15 @@
 @echo off
 REM windows batch
 
+set DEVELOPMENT_ROOT=%cd%
+
 setlocal ENABLEDELAYEDEXPANSION
 
 for /f "tokens=*" %%L in (repositories) do (
    for /f "tokens=1" %%S in ("%%L") do set A=%%S
-   for /f "tokens=2" %%T in ("%%L") do set B=%%T
+   for /f "tokens=2" %%T in ("%%L") do set B=%%T 
 
-   if NOT "!A!" == "#" call:download_code !A! !B! || exit /B 1
+   if NOT "!A!" == "#" call:build_code !A! !B! || exit /B 1
 )
 endlocal
 
@@ -15,21 +17,20 @@ goto:EOF
 
 REM -----------------------------------------------------------------
 
-:download_code
+:build_code
     set P=%1
     set P=%P:/=\%
     set R=%2
 	echo. 
- 	echo ^# %R% -^> %P%
+ 	echo ^# %p% (%R%)
 	echo ^# -------------------------------------------
 	set OLDPWD=%cd%
 	if NOT EXIST %P% mkdir %P% || exit /B 1
     cd %P% || exit /B 1
-    if NOT EXIST .git (
-   		git init
-   		git remote add github https://github.com/kulhanek/%R%.git
+    if EXIST CMakeLists.txt (
+		cmake %MODE% -G "MinGW Makefiles" . || exit /B 1
+		mingw32-make || exit /B 1
  	)
-	git pull github master || exit /B 1
 	cd %OLDPWD%
 goto:EOF
 
