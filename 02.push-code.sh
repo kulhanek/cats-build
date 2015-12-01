@@ -14,9 +14,9 @@ cd $OLDPWD
 # ------------------------------------------------------------------------------
 
 echo ""
-if [ -f repositories.writable ]; then
-    echo "Using: repositories.writable ..."
-    cat repositories.writable | grep -v '^#' | while read A B; do
+if [ -f repositories.push ]; then
+    echo "Using: repositories.push ..."
+    cat repositories.push | grep -v '^#' | while read A B; do
     push_code $A $B || exit 1
     done
 else
