@@ -7,15 +7,15 @@ else
     echo "Clean mode: $*"
 fi
 
-echo ""
-echo "# $B"
-echo "# -------------------------------------------"  
-cat repositories | grep -v '^#' | while read A B; do
+cat repositories | grep -v '^#' | while read A B C; do
+    echo ""
+    echo "# $B"
+    echo "# -------------------------------------------"  
     if [ -f $A/CMakeClean.sh ]; then
         ./$A/CMakeClean.sh $* 
     else
         echo "> Nothing to clean ..."
-    fir
+    fi
 done
 
 echo ""
