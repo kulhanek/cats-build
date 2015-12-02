@@ -12,7 +12,7 @@ echo "# $B"
 echo "# -------------------------------------------"  
 cat repositories | grep -v '^#' | while read A B; do
     if [ -f $A/CMakeClean.sh ]; then
-        ./$A/CMakeClean $* 
+        ./$A/CMakeClean.sh $* 
     else
         echo "> Nothing to clean ..."
     fir
