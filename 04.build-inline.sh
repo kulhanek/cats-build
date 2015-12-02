@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export DEVELOPMENT_ROOT=$PWD
+export DEVELOPMENT_ROOT=$PWD/src
 
 if [ $# -ne 1 ]; then
    case $1 in
@@ -13,17 +13,17 @@ fi
 
 # ------------------------------------------------------------------------------
 function build_code() {
-echo ""
-echo "# $1 ($2)"
-echo "# -------------------------------------------" 
-OLDPWD=$PWD
-mkdir -p $1 || exit 1
-cd $1 || exit 1
-if [ -f CMakeLists.txt ]; then
-cmake $MODE . || exit 1
-make || exit 1
-fi
-cd $OLDPWD
+    echo ""
+    echo "# $1 ($2)"
+    echo "# -------------------------------------------" 
+    OLDPWD=$PWD
+    mkdir -p $1 || exit 1
+    cd $1 || exit 1
+    if [ -f CMakeLists.txt ]; then
+    cmake $MODE . || exit 1
+    make || exit 1
+    fi
+    cd $OLDPWD
 }
 # ------------------------------------------------------------------------------
 

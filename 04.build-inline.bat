@@ -1,7 +1,7 @@
 @echo off
 REM windows batch
 
-set DEVELOPMENT_ROOT=%cd%
+set DEVELOPMENT_ROOT=%cd%\src
 
 setlocal ENABLEDELAYEDEXPANSION
 

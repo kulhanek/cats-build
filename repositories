@@ -1,18 +1,18 @@
 # local directory | repository | test
 # thirdparty code
-thirdparty/blas/netlib blas
-thirdparty/lapack/3.1.1 lapack
-thirdparty/csparse/2.2.1 csparse
-thirdparty/ranlux/1.0 ranlux
-thirdparty/netcdfcore/4.0.1 netcdfcore
-thirdparty/boost/1.59.0 boost
-thirdparty/readline/6.2.0 readline
+src/thirdparty/blas/netlib blas
+src/thirdparty/lapack/3.1.1 lapack
+src/thirdparty/csparse/2.2.1 csparse
+src/thirdparty/ranlux/1.0 ranlux
+src/thirdparty/netcdfcore/4.0.1 netcdfcore
+src/thirdparty/boost/1.59.0 boost
+src/thirdparty/readline/6.2.0 readline
 # main code
-projects/hipoly/1.0 hipoly
-projects/scimafic/1.0 scimafic
-projects/prmfile/1.0 prmfile
-projects/netlib/1.0 netlib
-projects/pmflib/5.0 pmflib T
-projects/asl/2.0 asl
+src/projects/hipoly/1.0 hipoly
+src/projects/scimafic/1.0 scimafic
+src/projects/prmfile/1.0 prmfile
+src/projects/netlib/1.0 netlib
+src/projects/pmflib/5.0 pmflib T
+src/projects/asl/2.0 asl
 # final code
-projects/cats/2.0 cats
+src/projects/cats/2.0 cats

@@ -7,8 +7,8 @@ echo "# $2 -> $1"
 echo "# -------------------------------------------" 
 OLDPWD=$PWD
 cd $1 || exit 1
-git push github master
-cd $OLDPWD
+git push github master || exit 1
+cd $OLDPWD 
 }
 
 # ------------------------------------------------------------------------------

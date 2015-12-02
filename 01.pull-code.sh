@@ -9,10 +9,10 @@ OLDPWD=$PWD
 mkdir -p $1 || exit 1
 cd $1 || exit 1
 if ! [ -d .git ]; then
-   git init
-   git remote add github https://github.com/kulhanek/${2}.git
+   git init || exit 1
+   git remote add github https://github.com/kulhanek/${2}.git || exit 1
 fi 
-git pull github master
+git pull github master || exit 1
 cd $OLDPWD
 }
 
