@@ -7,6 +7,7 @@ src/thirdparty/ranlux/1.0 ranlux
 src/thirdparty/netcdfcore/4.0.1 netcdfcore
 src/thirdparty/boost/1.59.0 boost
 src/thirdparty/readline/6.2.0 readline
+src/thirdparty/obcore/2.3.1 obcore
 # main code
 src/projects/hipoly/1.0 hipoly
 src/projects/scimafic/1.0 scimafic

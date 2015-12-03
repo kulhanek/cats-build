@@ -1,16 +1,16 @@
 #!/bin/bash
 
-export DEVELOPMENT_ROOT=$PWD
+export DEVELOPMENT_ROOT=$PWD/src
 
 # ------------------------------------------------------------------------------
 function run_test() {
-echo ""
-echo "# $1 ($2)"
-echo "# -------------------------------------------" 
-OLDPWD=$PWD
-cd $1 || exit 1
-ctest || exit 1
-cd $OLDPWD
+    echo ""
+    echo "# $1 ($2)"
+    echo "# -------------------------------------------" 
+    OLDPWD=$PWD
+    cd $1 || exit 1
+    ctest || exit 1
+    cd $OLDPWD
 }
 # ------------------------------------------------------------------------------
 

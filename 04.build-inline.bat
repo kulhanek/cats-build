@@ -21,17 +21,17 @@ REM -----------------------------------------------------------------
     set P=%1
     set P=%P:/=\%
     set R=%2
-	echo. 
- 	echo ^# %p% (%R%)
-	echo ^# -------------------------------------------
-	set OLDPWD=%cd%
-	if NOT EXIST %P% mkdir %P% || exit /B 1
+    echo. 
+    echo ^# %p% (%R%)
+    echo ^# -------------------------------------------
+    set OLDPWD=%cd%
+    if NOT EXIST %P% mkdir %P% || exit /B 1
     cd %P% || exit /B 1
     if EXIST CMakeLists.txt (
-		cmake %MODE% -G "MinGW Makefiles" . || exit /B 1
-		mingw32-make || exit /B 1
- 	)
-	cd %OLDPWD%
+        cmake %MODE% -G "MinGW Makefiles" . || exit /B 1
+        mingw32-make || exit /B 1
+    )
+    cd %OLDPWD%
 goto:EOF
 
 

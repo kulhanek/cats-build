@@ -1,18 +1,16 @@
 @echo off
 REM windows batch
 
-set DEVELOPMENT_ROOT=%cd%
-
 setlocal ENABLEDELAYEDEXPANSION
 
 echo|set /p=set PATH^=
 
 if EXIST tools.paths (
-	for /f "tokens=*" %%L in (tools.paths) do (
-	   for /f "tokens=1" %%S in ("%%L") do set A=%%S
+    for /f "tokens=*" %%L in (tools.paths) do (
+        for /f "tokens=1" %%S in ("%%L") do set A=%%S
 
-	   if NOT "!A!" == "#" call:gen_path_win !A!
-	)
+        if NOT "!A!" == "#" call:gen_path_win !A!
+    )
 )
 
 for /f "tokens=*" %%L in (repositories) do (
@@ -30,12 +28,14 @@ REM -----------------------------------------------------------------
 :gen_path
     set P=%1
     set P=%P:/=\%
-	echo|set /p=%DEVELOPMENT_ROOT%\%P%\lib^;%DEVELOPMENT_ROOT%\%P%\bin^;
+    if EXIST %cd%\%P%\lib echo|set /p=%cd%\%P%\lib^;
+    if EXIST %cd%\%P%\lib\drivers echo|set /p=%cd%\%P%\lib\drivers^;
+    if EXIST %cd%\%P%\bin echo|set /p=%cd%\%P%\bin^;
 goto:EOF
 
 :gen_path_win
     set P=%1
-	echo|set /p=%P%^;
+    echo|set /p=%P%^;
 goto:EOF
 
 
