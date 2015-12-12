@@ -2,14 +2,31 @@
 
 export DEVELOPMENT_ROOT=$PWD/src
 
-if [ $# -ne 1 ]; then
-   case $1 in
-     "release") MODE="-DCMAKE_BUILD_TYPE=Release"
-     ;;
-     "debug") MODE="-DCMAKE_BUILD_TYPE=Debug"
-     ;;
-   esac
+while [ $# -ne 0 ]; do
+    case $1 in
+        "-release") MODE="-DCMAKE_BUILD_TYPE=Release"
+        ;;
+        "-debug") MODE="-DCMAKE_BUILD_TYPE=Debug"
+        ;;
+        "-n")
+            shift
+            N=$1
+        ;;
+    esac
+    shift
+done
+
+# determine number of available CPUs if not specified
+if [ -z "$N" ]; then
+    N=1
+    type nproc &> /dev/null
+    if type nproc &> /dev/null; then
+        N=`nproc --all`
+    fi
 fi
+
+echo ""
+echo ">>> Number of CPUs for building: $N"
 
 # ------------------------------------------------------------------------------
 function build_code() {
@@ -21,7 +38,7 @@ function build_code() {
     cd $1 || exit 1
     if [ -f CMakeLists.txt ]; then
         cmake $MODE . || exit 1
-        make || exit 1
+        make -j$N || exit 1
     fi
     cd $OLDPWD
 }
