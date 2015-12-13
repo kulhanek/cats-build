@@ -40,6 +40,8 @@ REM -----------------------------------------------------------------
 :gen_path
     set P=%1
     set P=%P:/=\%
+    if EXIST %REPO_PATH%\%P%\build\bin set PATH=%PATH%;%REPO_PATH%\%P%\build\bin
+    if EXIST %REPO_PATH%\%P%\build\lib set PATH=%PATH%;%REPO_PATH%\%P%\build\lib
     if EXIST %REPO_PATH%\%P%\lib set PATH=%PATH%;%REPO_PATH%\%P%\lib
     if EXIST %REPO_PATH%\%P%\lib\drivers set PATH=%PATH%;%REPO_PATH%\%P%\lib\drivers
     if EXIST %REPO_PATH%\%P%\bin set PATH=%PATH%;%REPO_PATH%\%P%\bin
