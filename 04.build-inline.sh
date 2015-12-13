@@ -16,6 +16,11 @@ while [ $# -ne 0 ]; do
     shift
 done
 
+# add cmake from modules if they exist
+if type module &> /dev/null; then
+    module add cmake
+fi
+
 # determine number of available CPUs if not specified
 if [ -z "$N" ]; then
     N=1
