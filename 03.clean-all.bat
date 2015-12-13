@@ -1,6 +1,11 @@
 @echo off
 REM windows batch
 
+set MODE=%1%
+if "%MODE%"=="" (
+    set MODE=quick
+)
+
 setlocal ENABLEDELAYEDEXPANSION
 
 for /f "tokens=*" %%L in (repositories) do (
@@ -10,6 +15,8 @@ for /f "tokens=*" %%L in (repositories) do (
    if NOT "!A!" == "#" call:clean_code !A! !B! || exit /B 1
 )
 endlocal
+
+echo.
 
 goto:EOF
 
@@ -26,7 +33,7 @@ REM -----------------------------------------------------------------
     if EXIST %P% (
         cd %P% || exit /B 1
         if EXIST CMakeClean.bat (
-            CMakeClean.bat %1%
+            CMakeClean.bat %MODE%
         )
         cd %OLDPWD%
     ) else (

@@ -11,6 +11,8 @@ for /f "tokens=*" %%L in (repositories) do (
 )
 endlocal
 
+echo.
+
 goto:EOF
 
 REM -----------------------------------------------------------------

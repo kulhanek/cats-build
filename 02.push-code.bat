@@ -25,6 +25,8 @@ if EXIST repositories.push (
 
 endlocal
 
+echo.
+
 goto:EOF
 
 REM -----------------------------------------------------------------
