@@ -25,3 +25,6 @@ else
     push_code $A $B || exit 1
     done
 fi
+
+echo ""
+
