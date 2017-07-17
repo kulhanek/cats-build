@@ -5,10 +5,8 @@ src/thirdparty/lapack/3.1.1 lapack
 src/thirdparty/csparse/2.2.1 csparse
 src/thirdparty/ranlux/1.0 ranlux
 src/thirdparty/netcdfcore/4.0.1 netcdfcore
-src/thirdparty/boost/1.59.0 boost
-src/thirdparty/readline/6.2.0 readline
-src/thirdparty/obcore/2.3.1 obcore
 # main code
+src/projects/cmodules/1.0 cmodules
 src/projects/hipoly/1.0 hipoly
 src/projects/scimafic/1.0 scimafic
 src/projects/prmfile/1.0 prmfile
