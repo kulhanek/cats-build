@@ -10,9 +10,13 @@ fi
 
 # ------------------------------------------------------------------------------
 # add cmake from modules if they exist
-if type module &> /dev/null; then
-    module add cmake
+if ! type module &> /dev/null; then
+    echo "command 'module' required!"
+    exit 1
 fi
+
+module add cmake
+module add qt
 
 # determine number of available CPUs if not specified
 if [ -z "$N" ]; then
