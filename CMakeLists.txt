@@ -19,14 +19,15 @@ SET(COMPOSITE_PROJECT TRUE)
 SET(DEVELOPMENT_ROOT "${CMAKE_BINARY_DIR}/src")
 
 # extra options ----------------------------------
-SET(TRY_QT_LIB          ON  CACHE INTERNAL "QT is not neccessary" FORCE)
-SET(PMFLIB_CATS_DRV     ON  CACHE BOOL "Should the driver for cats be built?")
+SET(TRY_QT_LIB          ON  CACHE BOOL "QT is not neccessary" FORCE)
+SET(PMFLIB_CATS_DRV     ON  CACHE BOOL "Should the driver for cats be built?" FORCE)
 
 # ==============================================================================
 # libraries --------------------------------------------------------------------
 # ==============================================================================
 
 LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/lib)
+LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/lib/drivers)
 
 # ==============================================================================
 # rpaths -----------------------------------------------------------------------
