@@ -12,11 +12,20 @@ The typical procedure is:
 $ ./01.pull-code.sh      # update the code
 $ ./04.build-inline.sh   # build the code inline in src/
 ```
-## Production Build
+## Production Build into the Infinity software repository
 The typical procedure is:
 ```bash
 $ ./01.pull-code.sh      # update the code
-$ ./10.build-final.sh    # final build to the Infinity software repository ([AMS](https://github.com/kulhanek/ams))
+$ ./10.build-final.sh    # final build
+```
+
+## Production Build into a custom directory
+The typical procedure is:
+```bash
+$ ./01.pull-code.sh      # update the code
+$ cmake -DCMAKE_INSTALL_PREFIX=/path/to/cats/installation/direrctory
+$ make
+$ make install
 ```
 
 ## Configuration
