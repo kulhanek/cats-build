@@ -19,9 +19,9 @@ SET(COMPOSITE_PROJECT TRUE)
 SET(DEVELOPMENT_ROOT "${CMAKE_BINARY_DIR}/src")
 
 # extra options ----------------------------------
-SET(TRY_QT_LIB              ON  CACHE BOOL "QT is not neccessary" FORCE)
-SET(PMFLIB_CATS_DRV         ON  CACHE BOOL "Should the driver for cats be built?" FORCE)
-SET(PMFLIB_BUILD_UTILS      OFF CACHE BOOL "Should utilities be build?" FORCE)
+SET(TRY_QT_LIB              ON  CACHE INTERNAL "QT is not neccessary" FORCE)
+SET(PMFLIB_CATS_DRV         ON  CACHE INTERNAL "Should the driver for cats be built?" FORCE)
+SET(PMFLIB_BUILD_UTILS      OFF CACHE INTERNAL "Should utilities be build?" FORCE)
 
 # ==============================================================================
 # libraries --------------------------------------------------------------------
