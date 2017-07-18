@@ -37,7 +37,7 @@ fi
 
 cd src/projects/cats/2.0
 ./UpdateGitVersion activate
-VERS="3.`git rev-list --count HEAD`.`git rev-parse --short HEAD`"
+VERS="2.`git rev-list --count HEAD`.`git rev-parse --short HEAD`"
 cd $_PWD
 
 # ------------------------------------
@@ -47,7 +47,7 @@ if [ -z "$AMS_ROOT" ]; then
 fi
 
 # names ------------------------------
-NAME="abs"
+NAME="cats"
 ARCH=`uname -m`
 MODE="single" 
 echo "Build: $NAME:$VERS:$ARCH:$MODE"
@@ -73,6 +73,7 @@ cat > $SOFTBLDS/$NAME:$VERS:$ARCH:$MODE.bld << EOF
     <deps>
         <dep name="libfftw3"     type="deb"/>
         <dep name="libreadline"  type="deb"/>
+        <dep name="qt:5.9.1"     type="sync"/>
     </deps>
 </build>
 EOF
