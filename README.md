@@ -28,6 +28,3 @@ $ make
 $ make install
 ```
 
-## Configuration
-For details, see [CATs](https://github.com/kulhanek/cats).
-
