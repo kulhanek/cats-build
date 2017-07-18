@@ -23,7 +23,7 @@ $ ./10.build-final.sh    # final build
 The typical procedure is:
 ```bash
 $ ./01.pull-code.sh      # update the code
-$ cmake -DCMAKE_INSTALL_PREFIX=/path/to/cats/installation/direrctory
+$ cmake -DCMAKE_INSTALL_PREFIX=/path/to/cats/installation/directory
 $ make
 $ make install
 ```
