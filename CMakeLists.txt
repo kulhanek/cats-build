@@ -22,6 +22,7 @@ SET(DEVELOPMENT_ROOT "${CMAKE_BINARY_DIR}/src")
 SET(TRY_QT_LIB              ON  CACHE INTERNAL "QT is not neccessary" FORCE)
 SET(PMFLIB_CATS_DRV         ON  CACHE INTERNAL "Should the driver for cats be built?" FORCE)
 SET(PMFLIB_BUILD_UTILS      OFF CACHE INTERNAL "Should utilities be build?" FORCE)
+SET(LIBS_COMPLEX            OFF CACHE INTERNAL "Support for complex numbers?" FORCE)
 
 # ==============================================================================
 # libraries --------------------------------------------------------------------
@@ -41,8 +42,15 @@ SET(CMAKE_SKIP_BUILD_RPATH  FALSE)
 # (but later on when installing)
 SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE) 
 
-# the RPATH to be used when installing
-SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+SET(QT_RPATH $ENV{QT_RPATH})
+
+IF(QT_RPTATH)
+    # the RPATH to be used when installing
+    SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/lib/drivers:${QT_RPATH}")
+ELSE(QT_RPATH)
+    # the RPATH to be used when installing
+    SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/lib/drivers")
+ENDIF(QT_RPATH)
 
 # add the automatically determined parts of the RPATH
 # which point to directories outside the build tree to the install RPATH
@@ -82,4 +90,21 @@ ADD_SUBDIRECTORY(src/projects/netlib/1.0)
 ADD_SUBDIRECTORY(src/projects/pmflib/5.0)
 ADD_SUBDIRECTORY(src/projects/asl/2.0)
 ADD_SUBDIRECTORY(src/projects/cats/2.0)
+
+# ==============================================================================
+# inter-project dependencies  -------------------------------------------------
+# ==============================================================================
+ADD_DEPENDENCIES(cscimafic_shared hipoly_shared)
+
+ADD_DEPENDENCIES(cscimafic_shared hipoly_shared)
+ADD_DEPENDENCIES(cprmfile_shared hipoly_shared)
+ADD_DEPENDENCIES(netlib_shared hipoly_shared)
+ADD_DEPENDENCIES(asl_shared hipoly_shared cscimafic_shared cnetcdf_shared)
+ADD_DEPENDENCIES(fpmf_shared fprmfile_shared fscimafic_shared franlux_shared)
+ADD_DEPENDENCIES(cpmf_shared hipoly_shared cscimafic_shared netlib_shared asl_shared)
+ADD_DEPENDENCIES(cats_shared cats_drv_shared asl_shared netlib_shared cprmfile_shared cscimafic_shared)
+
+# local blas and lapack
+ADD_DEPENDENCIES(flapackd_shared fblasd_shared)
+ADD_DEPENDENCIES(fpmf_shared fblasd_shared flapackd_shared)
 

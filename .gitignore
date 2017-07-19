@@ -8,3 +8,12 @@ tools.paths
 05.run-tests.sh
 06.gen-runtime-paths.sh
 08.git-status.sh
+CMakeCache.txt
+CMakeFiles/
+DartConfiguration.tcl
+Makefile
+bin/
+cats-build.creator.user
+cmake_install.cmake
+lib/
+test/
