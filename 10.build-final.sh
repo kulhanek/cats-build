@@ -9,6 +9,12 @@ if [ "`hostname -f`" != "deb8.ncbr.muni.cz" ]; then
 fi
 
 # ------------------------------------------------------------------------------
+
+if [ -z "$AMS_ROOT" ]; then
+   echo "ERROR: This installation script works only in the Infinity environment!"
+   exit 1
+fi
+
 # add cmake from modules if they exist
 if ! type module &> /dev/null; then
     echo "command 'module' required!"
@@ -17,6 +23,8 @@ fi
 
 module add cmake
 module add qt
+
+# ------------------------------------
 
 # determine number of available CPUs if not specified
 if [ -z "$N" ]; then
@@ -34,17 +42,21 @@ if ! [ -d src/projects/cats/2.0 ]; then
     echo "src/projects/cats/2.0 - not found"
     exit 1
 fi
-
-cd src/projects/cats/2.0
-./UpdateGitVersion activate
+# generate CATs version information --
+cd src/projects/cats/2.0 || exit 1
+./UpdateGitVersion activate || exit 1
 VERS="2.`git rev-list --count HEAD`.`git rev-parse --short HEAD`"
 cd $_PWD
 
-# ------------------------------------
-if [ -z "$AMS_ROOT" ]; then
-   echo "ERROR: This installation script works only in the Infinity environment!"
-   exit 1
+if ! [ -d src/projects/pmflib/5.0 ]; then
+    echo "src/projects/pmflib/5.0 - not found"
+    exit 1
 fi
+
+# generate PMFLib version information -
+cd src/projects/pmflib/5.0 || exit 1
+./UpdateGitVersion activate || exit 1
+cd $_PWD
 
 # names ------------------------------
 NAME="cats"
