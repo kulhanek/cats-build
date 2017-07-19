@@ -55,7 +55,7 @@ echo ""
 
 # build and install software ---------
 cmake -DCMAKE_INSTALL_PREFIX="$SOFTREPO/$PREFIX/$NAME/$VERS/$ARCH/$MODE" .
-make install
+make -j "$N" install
 if [ $? -ne 0 ]; then exit 1; fi
 
 # prepare build file -----------------
@@ -77,6 +77,7 @@ cat > $SOFTBLDS/$NAME:$VERS:$ARCH:$MODE.bld << EOF
     </deps>
 </build>
 EOF
+if [ $? -ne 0 ]; then exit 1; fi
 
 ams-map-manip addbuilds $SITES $NAME:$VERS:$ARCH:$MODE
 if [ $? -ne 0 ]; then exit 1; fi
