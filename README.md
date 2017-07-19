@@ -9,12 +9,16 @@ Utilities for testing and buliding of the [CATs - Conversion and Analysis Tools]
 ## Testing Mode
 The typical procedure is:
 ```bash
+$ git clone --recursive https://github.com/kulhanek/cats-build.git
+$ cd cats-build
 $ ./01.pull-code.sh      # update the code
 $ ./04.build-inline.sh   # build the code inline in src/
 ```
 ## Production Build into the Infinity software repository
 The typical procedure is:
 ```bash
+$ git clone --recursive https://github.com/kulhanek/cats-build.git
+$ cd cats-build
 $ ./01.pull-code.sh      # update the code
 $ ./10.build-final.sh    # final build
 ```
@@ -22,6 +26,8 @@ $ ./10.build-final.sh    # final build
 ## Production Build into Custom Directory
 The typical procedure is:
 ```bash
+$ git clone --recursive https://github.com/kulhanek/cats-build.git
+$ cd cats-build
 $ ./01.pull-code.sh      # update the code
 $ cmake -DCMAKE_INSTALL_PREFIX=/path/to/cats/installation/directory
 $ make
