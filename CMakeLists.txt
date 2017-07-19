@@ -19,10 +19,16 @@ SET(COMPOSITE_PROJECT TRUE)
 SET(DEVELOPMENT_ROOT "${CMAKE_BINARY_DIR}/src")
 
 # extra options ----------------------------------
-SET(TRY_QT_LIB              ON  CACHE INTERNAL "QT is not neccessary" FORCE)
-SET(PMFLIB_CATS_DRV         ON  CACHE INTERNAL "Should the driver for cats be built?" FORCE)
-SET(PMFLIB_BUILD_UTILS      OFF CACHE INTERNAL "Should utilities be build?" FORCE)
-SET(LIBS_COMPLEX            OFF CACHE INTERNAL "Support for complex numbers?" FORCE)
+SET(TRY_QT_LIB              ON  CACHE BOOL "QT is not neccessary" FORCE)
+SET(PMFLIB_CATS_DRV         ON  CACHE BOOL "Should the driver for cats be built?" FORCE)
+SET(PMFLIB_SANDER_DRV       OFF CACHE BOOL "Should the driver for sander be built?" FORCE)
+SET(PMFLIB_PMEMD_DRV        OFF CACHE BOOL "Should the driver for pmemd be built?" FORCE)
+SET(PMFLIB_CPMD_DRV         OFF CACHE BOOL "Should the driver for cpmd be built?" FORCE)
+SET(PMFLIB_CP2K_DRV         OFF CACHE BOOL "Should the driver for cp2k be built?" FORCE)
+SET(PMFLIB_XDYNBP_DRV       OFF CACHE BOOL "Should the driver for xdynbp be built?" FORCE)
+SET(PMFLIB_LIBATOMS_DRV     OFF CACHE BOOL "Should the driver for libatoms be built?" FORCE)
+SET(PMFLIB_BUILD_UTILS      OFF CACHE BOOL "Should utilities be build?" FORCE)
+SET(LIBS_COMPLEX            OFF CACHE BOOL "Support for complex numbers?" FORCE)
 
 # ==============================================================================
 # libraries --------------------------------------------------------------------
