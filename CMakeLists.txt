@@ -100,9 +100,8 @@ ADD_SUBDIRECTORY(src/projects/cats/2.0)
 # ==============================================================================
 # inter-project dependencies  -------------------------------------------------
 # ==============================================================================
-ADD_DEPENDENCIES(cscimafic_shared hipoly_shared)
-
-ADD_DEPENDENCIES(cscimafic_shared hipoly_shared)
+ADD_DEPENDENCIES(cscimafic_shared hipoly_shared flapackd_shared)
+ADD_DEPENDENCIES(fscimafic_shared flapackd_shared)
 ADD_DEPENDENCIES(cprmfile_shared hipoly_shared)
 ADD_DEPENDENCIES(netlib_shared hipoly_shared)
 ADD_DEPENDENCIES(asl_shared hipoly_shared cscimafic_shared cnetcdf_shared)
