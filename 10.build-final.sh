@@ -67,7 +67,8 @@ cd $_PWD
 # names ------------------------------
 NAME="cats"
 ARCH=`uname -m`
-MODE="single" 
+MODE="single"
+echo ""
 echo "Build: $NAME:$VERS:$ARCH:$MODE"
 echo ""
 
