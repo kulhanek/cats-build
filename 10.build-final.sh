@@ -24,6 +24,9 @@ fi
 module add cmake git
 module add qt
 
+# required in IT4I
+module add intelcdk
+
 # ------------------------------------
 
 # determine number of available CPUs if not specified
