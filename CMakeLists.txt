@@ -119,6 +119,7 @@ ENDIF(NOT MKL_FOUND)
 ADD_SUBDIRECTORY(src/thirdparty/csparse/2.2.1)
 ADD_SUBDIRECTORY(src/thirdparty/ranlux/1.0)
 ADD_SUBDIRECTORY(src/thirdparty/netcdfcore/4.0.1)
+ADD_SUBDIRECTORY(src/thirdparty/obcore/2.4.0)
 
 # projects ---------------------------------------
 ADD_SUBDIRECTORY(src/projects/hipoly/1.0)
@@ -138,7 +139,7 @@ ADD_DEPENDENCIES(netlib_shared hipoly_shared cprmfile_shared)
 ADD_DEPENDENCIES(asl_shared hipoly_shared cscimafic_shared cnetcdf_shared)
 ADD_DEPENDENCIES(fpmf_shared fprmfile_shared fscimafic_shared franlux_shared)
 ADD_DEPENDENCIES(cpmf_shared hipoly_shared cscimafic_shared netlib_shared asl_shared)
-ADD_DEPENDENCIES(cats_shared cats_drv_shared asl_shared netlib_shared cprmfile_shared cscimafic_shared)
+ADD_DEPENDENCIES(cats_shared cats_drv_shared asl_shared netlib_shared cprmfile_shared cscimafic_shared obcore_shared)
 
 IF(NOT MKL_FOUND)
     # local blas and lapack

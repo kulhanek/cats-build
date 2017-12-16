@@ -1,11 +1,12 @@
 # local directory | repository | test
 # thirdparty code
-src/thirdparty/boost/1.59.0 boost
+src/thirdparty/boost/1.65.1 boost
 src/thirdparty/blas/netlib blas
 src/thirdparty/lapack/3.1.1 lapack
 src/thirdparty/csparse/2.2.1 csparse
 src/thirdparty/ranlux/1.0 ranlux
 src/thirdparty/netcdfcore/4.0.1 netcdfcore
+src/thirdparty/obcore/2.4.0 obcore
 # main code
 src/projects/cmake-modules/1.0 cmake-modules
 src/projects/hipoly/1.0 hipoly
