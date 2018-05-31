@@ -42,27 +42,10 @@ if [ -z "$N" ]; then
 fi
 
 # ------------------------------------------------------------------------------
-# update revision number
-_PWD=$PWD
-if ! [ -d src/projects/cats/2.0 ]; then
-    echo "src/projects/cats/2.0 - not found"
-    exit 1
+# run pre-installation hook if available
+if [ -f ./preinstall-hook ]; then
+    bash ./preinstall-hook || exit 1
 fi
-# generate CATs version information --
-cd src/projects/cats/2.0 || exit 1
-./UpdateGitVersion activate || exit 1
-VERS="2.`git rev-list --count HEAD`.`git rev-parse --short HEAD`"
-cd $_PWD
-
-if ! [ -d src/projects/pmflib/5.0 ]; then
-    echo "src/projects/pmflib/5.0 - not found"
-    exit 1
-fi
-
-# generate PMFLib version information -
-cd src/projects/pmflib/5.0 || exit 1
-./UpdateGitVersion activate || exit 1
-cd $_PWD
 
 # names ------------------------------
 NAME="cats"
