@@ -17,3 +17,5 @@ cats-build.creator.user
 cmake_install.cmake
 lib/
 test/
+ams.log
+install_manifest.txt
