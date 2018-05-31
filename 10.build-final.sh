@@ -44,7 +44,7 @@ fi
 # ------------------------------------------------------------------------------
 # run pre-installation hook if available
 if [ -f ./preinstall-hook ]; then
-    bash ./preinstall-hook || exit 1
+    source ./preinstall-hook || exit 1
 fi
 
 # names ------------------------------
