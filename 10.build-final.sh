@@ -22,7 +22,7 @@ if ! type module &> /dev/null; then
 fi
 
 module add cmake git
-module add qt
+module add qt:5.9.6
 
 # required in IT4I
 module add intelcdk
@@ -74,8 +74,8 @@ cat > $SOFTBLDS/$NAME:$VERS:$ARCH:$MODE.bld << EOF
     </setup>
     <deps>
         <dep name="libfftw3-dev"            type="deb"/>
-        <dep name="libreadline-dev"         type="deb"/>
-        <dep name="qt:5.9.1"                type="sync"/>
+        <dep name="libreadline6"            type="deb"/>
+        <dep name="qt:5.9.6"                type="sync"/>
         <dep name="intelcore:2017.1.132"    type="sync"/>
     </deps>
 </build>
