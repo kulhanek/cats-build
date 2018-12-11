@@ -26,6 +26,7 @@ module add qt:5.9.6
 
 # required in IT4I
 module add intelcdk
+module add readline  # this also includes ncurses
 
 # ------------------------------------
 

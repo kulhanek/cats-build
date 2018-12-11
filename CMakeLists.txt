@@ -67,6 +67,7 @@ LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/lib/drivers)
 # intel core and QT libraries
 SET(INTEL_CORE_HOME "$ENV{INTEL_CORE_HOME}")
 SET(QT_RPATH "$ENV{QT_RPATH}")
+SET(OT_RPATH "$ENV{RPATH}")
 
 # use, i.e. don't skip the full RPATH for the build tree
 SET(CMAKE_SKIP_BUILD_RPATH  FALSE)
@@ -87,6 +88,11 @@ IF(INTEL_CORE_HOME)
     MESSAGE("-- INTEL_CORE_HOME: ${INTEL_CORE_HOME}")
     SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:${INTEL_CORE_HOME}")
 ENDIF(INTEL_CORE_HOME)
+
+IF(OT_RPATH)
+    MESSAGE("-- Other rpaths: ${OT_RPATH}")
+    SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:${OT_RPATH}")
+ENDIF(OT_RPATH)
 
 # add the automatically determined parts of the RPATH
 # which point to directories outside the build tree to the install RPATH
