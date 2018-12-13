@@ -7,6 +7,7 @@ src/thirdparty/csparse/2.2.1 csparse
 src/thirdparty/ranlux/1.0 ranlux
 src/thirdparty/netcdfcore/4.0.1 netcdfcore
 src/thirdparty/obcore/2.4.0 obcore
+src/thirdparty/nlopt/2.4.2 nlopt
 # main code
 src/projects/cmake-modules/1.0 cmake-modules
 src/projects/hipoly/1.0 hipoly
