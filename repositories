@@ -14,7 +14,7 @@ src/projects/hipoly/1.0 hipoly
 src/projects/scimafic/1.0 scimafic
 src/projects/prmfile/1.0 prmfile
 src/projects/netlib/1.0 netlib
-src/projects/pmflib/5.0 pmflib T
+src/projects/pmflib/6.0 pmflib T
 src/projects/asl/2.0 asl
 # final code
 src/projects/cats/2.0 cats
