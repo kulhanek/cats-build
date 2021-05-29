@@ -127,7 +127,7 @@ ADD_SUBDIRECTORY(src/projects/hipoly/1.0)
 ADD_SUBDIRECTORY(src/projects/scimafic/1.0)
 ADD_SUBDIRECTORY(src/projects/prmfile/1.0)
 ADD_SUBDIRECTORY(src/projects/netlib/1.0)
-ADD_SUBDIRECTORY(src/projects/pmflib/5.0)
+ADD_SUBDIRECTORY(src/projects/pmflib/6.0)
 ADD_SUBDIRECTORY(src/projects/asl/2.0)
 ADD_SUBDIRECTORY(src/projects/cats/2.0)
 
