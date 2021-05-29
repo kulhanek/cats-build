@@ -75,10 +75,9 @@ cat > $SOFTBLDS/$NAME:$VERS:$ARCH:$MODE.bld << EOF
     </setup>
     <deps>
         <dep name="libfftw3-dev"            type="deb"/>
-        <dep name="libreadline6"            type="deb"/>
-        <dep name="libgfortran3"            type="deb"/>
+        <dep name="libreadline7"            type="deb"/>
         <dep name="qt:5.9.6"                type="sync"/>
-        <dep name="intelcore:2017.1.132"    type="sync"/>
+        <dep name="intelcore:2019.3.199"    type="sync"/>
     </deps>
 </build>
 EOF
