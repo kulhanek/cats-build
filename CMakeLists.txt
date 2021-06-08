@@ -2,8 +2,8 @@
 # CATs - Conversion and Analysis Tools
 # ==============================================================================
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8 FATAL_ERROR)
-PROJECT(CATs)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.10 FATAL_ERROR)
+PROJECT(CATSBUILD)
 
 #SET(CMAKE_VERBOSE_MAKEFILE ON)
 
