@@ -3,6 +3,8 @@
 # ==============================================================================
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8 FATAL_ERROR)
+PROJECT(CATs)
+
 #SET(CMAKE_VERBOSE_MAKEFILE ON)
 
 # ==============================================================================
@@ -41,21 +43,13 @@ SET(LIBS_COMPLEX            OFF CACHE BOOL "Support for complex numbers?" FORCE)
 # libraries --------------------------------------------------------------------
 # ==============================================================================
 
-# try to find math kernel library
-SET(MKL_HOME "$ENV{MKL_HOME}")
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${DEVELOPMENT_ROOT}/projects/cmake-modules/1.0/share/modules")
 
-IF(MKL_HOME)
-    SET(MKL_FOUND TRUE)
-    IF(TARGET_ARCHITECTURE STREQUAL i686)
-        # NOT SUPPORTED
-        SET(MKL_LIBS mkl_intel mkl_sequential mkl_core pthread)
-    ELSEIF(TARGET_ARCHITECTURE STREQUAL em64t)
-        LINK_DIRECTORIES(${MKL_HOME}/lib/intel64)
-        SET(MKL_LIBS mkl_intel_lp64 mkl_sequential mkl_core pthread)
-    ELSE(TARGET_ARCHITECTURE STREQUAL i686)
-        MESSAGE(FATAL_ERROR "ERROR: Unsupported target architecture: ${TARGET_ARCHITECTURE}")
-    ENDIF(TARGET_ARCHITECTURE STREQUAL i686)
-ENDIF(MKL_HOME)
+# boost package
+FIND_PACKAGE(MyBoost)
+
+# setup BLAS/LAPACK either from MKL or from fallback netlib blas and lapack
+FIND_PACKAGE(BlasLapack)
 
 LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/lib)
 LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/lib/drivers)
