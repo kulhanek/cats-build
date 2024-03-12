@@ -1,27 +1,18 @@
 #!/bin/bash
 
-SITES="clusters"
-PREFIX="common"
+PREFIX="lcc"
+LOG="$PWD/single.log"
+
+set -o pipefail
 
 # ------------------------------------------------------------------------------
 
-if [ -z "$AMS_ROOT" ]; then
+if [ -z "$AMS_ROOT_V9" ]; then
    echo "ERROR: This installation script works only in the Infinity environment!"
    exit 1
 fi
 
-# add cmake from modules if they exist
-if ! type module &> /dev/null; then
-    echo "command 'module' required!"
-    exit 1
-fi
-
-module add cmake git
 module add qt:5.9.6
-
-# required in IT4I
-module add intelcdk
-module add readline  # this also includes ncurses
 
 # ------------------------------------
 
@@ -32,8 +23,8 @@ if [ -z "$N" ]; then
     if type nproc &> /dev/null; then
         N=`nproc --all`
     fi
-    if [ "$N" -gt 4 ]; then
-        N=4
+    if [ "$N" -gt 8 ]; then
+        N=8
     fi
 fi
 
@@ -45,22 +36,23 @@ fi
 
 # names ------------------------------
 NAME="cats"
-ARCH=`uname -m`
+ARCH="m64-ub8"
 MODE="single"
 echo ""
 echo "Build: $NAME:$VERS:$ARCH:$MODE"
 echo ""
 
 # build and install software ---------
-cmake -DCMAKE_INSTALL_PREFIX="$SOFTREPO/$PREFIX/$NAME/$VERS/$ARCH/$MODE" .
-make -j "$N" install
+cmake -DCMAKE_INSTALL_PREFIX="$SOFTREPO/$PREFIX/$NAME/$VERS/$ARCH/$MODE" . | tee $LOG
+make -j "$N" install | tee -a $LOG
 if [ $? -ne 0 ]; then exit 1; fi
 
 # prepare build file -----------------
-SOFTBLDS="$AMS_ROOT/etc/map/builds/$PREFIX"
-VERIDX=`ams-map-manip newverindex $NAME:$VERS:$ARCH:$MODE`
+SOFTBLDS="$SOFTREPO/$PREFIX/_ams_bundle/blds/"
+cd $SOFTBLDS || exit 1
+VERIDX=`ams-bundle newverindex $NAME:$VERS:$ARCH:$MODE`
 
-cat > $SOFTBLDS/$NAME:$VERS:$ARCH:$MODE.bld << EOF
+cat > $NAME:$VERS:$ARCH:$MODE.bld << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Advanced Module System (AMS) build file -->
 <build name="$NAME" ver="$VERS" arch="$ARCH" mode="$MODE" verindx="$VERIDX">
@@ -79,18 +71,9 @@ EOF
 if [ $? -ne 0 ]; then exit 1; fi
 
 echo ""
-echo "Adding builds ..."
-ams-map-manip addbuilds $SITES $NAME:$VERS:$ARCH:$MODE >> ams.log 2>&1
-if [ $? -ne 0 ]; then echo ">>> ERROR: see ams.log"; exit 1; fi
+echo "Rebuilding bundle ..."
+ams-bundle rebuild | tee -a $LOG
+if [ $? -ne 0 ]; then exit 1; fi
 
-echo "Distribute builds ..."
-ams-map-manip distribute >> ams.log 2>&1
-if [ $? -ne 0 ]; then echo ">>> ERROR: see ams.log"; exit 1; fi
-
-echo "Rebuilding cache ..."
-ams-cache rebuildall >> ams.log 2>&1
-if [ $? -ne 0 ]; then echo ">>> ERROR: see ams.log"; exit 1; fi
-
-echo "Log file: ams.log"
+echo "LOG: $LOG"
 echo ""
-
