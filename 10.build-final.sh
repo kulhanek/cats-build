@@ -36,7 +36,7 @@ fi
 
 # names ------------------------------
 NAME="cats"
-ARCH="m64-ub8"
+ARCH="m64-ub18"
 MODE="single"
 echo ""
 echo "Build: $NAME:$VERS:$ARCH:$MODE"
@@ -46,6 +46,9 @@ echo ""
 cmake -DCMAKE_INSTALL_PREFIX="$SOFTREPO/$PREFIX/$NAME/$VERS/$ARCH/$MODE" . | tee $LOG
 make -j "$N" install | tee -a $LOG
 if [ $? -ne 0 ]; then exit 1; fi
+
+# RT#1262217
+cp /usr/lib/x86_64-linux-gnu/libgfortran.so.4 $SOFTREPO/$PREFIX/$NAME/$VERS/$ARCH/$MODE/lib/
 
 # prepare build file -----------------
 SOFTBLDS="$SOFTREPO/$PREFIX/_ams_bundle/blds/"
