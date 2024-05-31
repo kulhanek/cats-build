@@ -1,19 +1,19 @@
 # local directory | repository | test
 # thirdparty code
-src/thirdparty/boost/1.84.0     boost       1.84.0
-src/thirdparty/blas/netlib      blas        netlib
-src/thirdparty/lapack/3.1.1     lapack      3.1.1
-src/thirdparty/csparse/2.2.1    csparse     2.2.1
-src/thirdparty/netcdfcore/4.0.1 netcdfcore  4.0.1
-src/thirdparty/obcore/3.1.1     obcore      3.1.1
-src/thirdparty/lbfgs/1.0        lbfgs       1.0
+src/thirdparty/boost/1.84.0     boost           1.84.0
+src/thirdparty/blas/netlib      blas            netlib
+src/thirdparty/lapack/3.1.1     lapack          3.1.1
+src/thirdparty/csparse/2.2.1    csparse         2.2.1
+src/thirdparty/netcdfcore/4.0.1 netcdfcore      4.0.1
+src/thirdparty/obcore/3.1.1     obcore          3.1.1
+src/thirdparty/lbfgs/1.0        lbfgs           1.0
 # main code
-src/projects/cmake-modules/1.0 cmake-modules main
-src/projects/hipoly/1.0 hipoly main
-src/projects/scimafic/1.0 scimafic main
-src/projects/prmfile/1.0 prmfile main
-src/projects/netlib/1.0 netlib main
-src/projects/pmflib/6.0 pmflib main T
-src/projects/asl/2.0 asl main
+src/projects/cmake-modules/1.0  cmake-modules   1.0
+src/projects/hipoly/1.0         hipoly          1.0
+src/projects/scimafic/1.0       scimafic        1.0
+src/projects/prmfile/1.0        prmfile         1.0
+src/projects/netlib/1.0         netlib          1.0
+src/projects/pmflib/6.0         pmflib          6.0
+src/projects/asl/2.0            asl             2.0
 # final code
-src/projects/cats/2.0 cats main
+src/projects/cats/2.0           cats            2.0
