@@ -5,7 +5,7 @@ src/thirdparty/blas/netlib      blas            netlib
 src/thirdparty/lapack/3.1.1     lapack          3.1.1
 src/thirdparty/csparse/2.2.1    csparse         2.2.1
 src/thirdparty/netcdfcore/4.0.1 netcdfcore      4.0.1
-src/thirdparty/obcore/3.1.1     obcore          3.1.1
+src/thirdparty/obcore/x2024-01  obcore          x2024-01
 src/thirdparty/lbfgs/1.0        lbfgs           1.0
 # main code
 src/projects/cmake-modules/1.0  cmake-modules   1.0

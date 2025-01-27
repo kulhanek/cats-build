@@ -118,7 +118,7 @@ IF(NOT MKL_FOUND)
 ENDIF(NOT MKL_FOUND)
 ADD_SUBDIRECTORY(src/thirdparty/csparse/2.2.1)
 ADD_SUBDIRECTORY(src/thirdparty/netcdfcore/4.0.1)
-ADD_SUBDIRECTORY(src/thirdparty/obcore/2.4.0)
+ADD_SUBDIRECTORY(src/thirdparty/obcore/x2024-01)
 ADD_SUBDIRECTORY(src/thirdparty/nlopt/2.4.2)
 
 # projects ---------------------------------------
