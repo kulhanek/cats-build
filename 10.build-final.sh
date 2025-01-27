@@ -12,7 +12,7 @@ if [ -z "$AMS_ROOT_V9" ]; then
    exit 1
 fi
 
-module add qt:5.9.6
+module add qt:5.15.3
 
 # ------------------------------------
 
@@ -36,7 +36,7 @@ fi
 
 # names ------------------------------
 NAME="cats"
-ARCH="m64-ub18"
+ARCH="m64-ub22"
 MODE="single"
 echo ""
 echo "Build: $NAME:$VERS:$ARCH:$MODE"
@@ -49,6 +49,7 @@ if [ $? -ne 0 ]; then exit 1; fi
 
 # RT#1262217
 cp /usr/lib/x86_64-linux-gnu/libgfortran.so.4 $SOFTREPO/$PREFIX/$NAME/$VERS/$ARCH/$MODE/lib/
+cp /usr/lib/x86_64-linux-gnu/libopenblas.so.0 $SOFTREPO/$PREFIX/$NAME/$VERS/$ARCH/$MODE/lib/
 
 # prepare build file -----------------
 SOFTBLDS="$SOFTREPO/$PREFIX/_ams_bundle/blds/"
@@ -65,9 +66,8 @@ cat > $NAME:$VERS:$ARCH:$MODE.bld << EOF
     </setup>
     <deps>
         <dep name="libfftw3-dev"            type="deb"/>
-        <dep name="libreadline7"            type="deb"/>
-        <dep name="qt:5.9.6"                type="sync"/>
-        <dep name="intelcore:2019.3.199"    type="sync"/>
+        <dep name="libreadline8-dev"        type="deb"/>
+        <dep name="qt:5.15.3"               type="sync"/>
     </deps>
 </build>
 EOF
